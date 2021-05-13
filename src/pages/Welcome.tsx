@@ -9,10 +9,12 @@ import {
 } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/core'
+import { LinearGradient } from 'expo-linear-gradient';
 
 import logo from '../assets/logo.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
+
 
 export function Welcome(){
   const navigation = useNavigation();
@@ -21,29 +23,35 @@ export function Welcome(){
     navigation.navigate('DevIdentification')
   }
   return(
-    <View style={styles.container}>
-      <Text style={styles.title}>
-        Bem vindo Dev!
-      </Text>
-      <Image 
-        source={logo}
-        style={styles.image}
-        resizeMode= 'contain'
-      />
-      <Text style={styles.subtitle}>
-        Pronto para testar seus conhecimentos no universo da programação?
-      </Text>
-      <TouchableOpacity
-        style={styles.button}
-        activeOpacity={0.7}
-        onPress={handleStart}
-      >
-        <AntDesign 
-          name='play'
-          style={styles.buttonIcon}
+    <LinearGradient
+        style={styles.container}
+        colors={['#57B6E5', '#8257E5']}
+        start={{ x: 0, y: 1 }}
+        end={{ x: 1, y: 1 }}
+        locations={[0, 1]}
+    >
+        <Text style={styles.title}>
+          Bem vindo Dev!
+        </Text>
+        <Image 
+          source={logo}
+          style={styles.image}
+          resizeMode= 'contain'
         />
-      </TouchableOpacity>
-    </View>
+        <Text style={styles.subtitle}>
+          Pronto para testar seus conhecimentos no universo da programação?
+        </Text>
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.7}
+          onPress={handleStart}
+        >
+          <AntDesign 
+            name='play'
+            style={styles.buttonIcon}
+          />
+        </TouchableOpacity>
+    </LinearGradient>
   )
 }
 
