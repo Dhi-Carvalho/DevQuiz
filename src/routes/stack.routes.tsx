@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import { Welcome } from '../pages/Welcome';
 import { DevIdentification } from '../pages/DevIdentification';
+import { StartChallenge } from '../pages/StartChallenge';
+import { TechSelection } from '../pages/TechSelection';
 
 import colors from '../styles/colors';
 
@@ -25,6 +27,15 @@ const AppRoutes: React.FC = () => (
       name='DevIdentification'
       component={DevIdentification}
     />
+    <stackRoutes.Screen
+      name='StartChallenge'
+      component={StartChallenge}
+    />
+    <stackRoutes.Screen
+      name='TechSelection'
+      component={TechSelection}
+    />
+    
   </stackRoutes.Navigator>
 )
 
