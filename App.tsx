@@ -1,21 +1,32 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+  useFonts,
+  NotoSansHK_100Thin,
+  NotoSansHK_300Light,
+  NotoSansHK_400Regular,
+  NotoSansHK_500Medium,
+  NotoSansHK_700Bold,
+  NotoSansHK_900Black
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+} from '@expo-google-fonts/noto-sans-hk';
+import AppLoading from 'expo-app-loading';
+
+import { Welcome } from './src/pages/Welcome';
+
+export default function App(){
+  const [ fontsLoaded ] = useFonts({
+    NotoSansHK_100Thin,
+    NotoSansHK_300Light,
+    NotoSansHK_400Regular,
+    NotoSansHK_500Medium,
+    NotoSansHK_700Bold,
+    NotoSansHK_900Black
+  });
+
+  if(!fontsLoaded)
+    return <AppLoading/>
+
+  return(
+    <Welcome/>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
